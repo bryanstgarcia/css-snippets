@@ -1,0 +1,228 @@
+@use './../../../../styles/fonts';
+@use './../../../../styles/variables';
+
+.landing-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    width: 100%;
+    background-color: variables.$dark-color;
+    overflow: hidden;
+}
+.landing__bubble {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    min-width: 18rem;
+    width: 40vw;
+    max-width: 35.875rem;
+    min-height: 18rem;
+    height: 40vw;
+    max-height: 35.875rem;
+    border-radius: 50%;
+    background: radial-gradient(54.13% 61.7% at 52.19% 51.63%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 74.73%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    backdrop-filter: blur(20px);
+
+    & > h1 {
+        margin-bottom: 0;
+        color: variables.$light-color;
+        @include fonts.font-custom(fonts.$main-font, 900,"xxl", "regular");
+        & > span {
+            display: block;
+        }
+        & >span:first-child {
+            font-size: 6.25rem;
+            line-height: 0.8;
+        }
+    }
+
+    & > p {
+        @include fonts.font-custom(fonts.$main-font, 700,"md", "regular");
+        margin-top: 0.5rem;
+        color: variables.$light-color;
+        
+    }
+}
+.landing__bubble.animate {
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-name: growing;
+    animation-duration: 4s;
+}
+@keyframes growing {
+    0% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.landing-box__arrow {
+    position: absolute;
+    z-index: 4;
+    
+    &.arrow-1 {
+        top: 10vh;
+        left: 10vw;
+    }
+    &.arrow-1::before {
+        position: absolute;
+        content: " ";
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: #4FA3E0;
+        top: 200px;
+        left: 100px;
+    }
+    &.arrow-1::after {
+        position: absolute;
+        content: " ";
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: #8BFE62;
+        top: 100px;
+        left: 250px;
+        border-radius: 50%;
+    }
+    &.arrow-2 {
+        bottom: 10vh;
+        right: 10vw;
+        transform: rotate(180deg);
+    }
+    &.arrow-2::after {
+        position: absolute;
+        content: " ";
+        width: 2.5rem;
+        height: 2.5rem;
+        top: 200px;
+        left: 100px;
+        background-color: #4FA3E0;
+    }
+    &.arrow-2::before {
+        position: absolute;
+        content: " ";
+        width: 2.5rem;
+        height: 2.5rem;
+        top: 100px;
+        left: 250px;
+        border-radius: 50%;
+        background-color: #8BFE62;
+    }
+}
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+.bubble-xs.animate {
+    min-width: 8rem;
+    min-height: 8rem;
+    width: 20vw;
+    height: 20vw;
+    max-width: 11rem;
+    max-height: 11rem;
+    background: linear-gradient(180deg, #2BA873 29.96%, #3482BA 71.33%);
+    border: 1px solid #000000;
+    box-shadow: inset 2px 24px 30px 2px rgba(255, 255, 255, 0.25);
+    animation-name: bubbling-xs;
+    animation-duration: 15s;
+}
+@keyframes bubbling-xs {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    30% {
+        transform: translateX(-40vw) translateY(-20vh);
+    }
+    60% {
+        transform: translateX(40vw) translateY(-20vh);
+    }
+    100% {
+        transform: translateX(-40vw) translateY(20vh);
+    }
+}
+.bubble-sm.animate {
+    min-width: 11rem;
+    min-height: 11rem;
+    width: 25vw;
+    height: 25vw;
+    max-width: 15rem;
+    max-height: 15rem;
+    background: linear-gradient(212.54deg, #F99030 39.4%, #F53232 80.5%);
+    border: 1px solid #000000;
+    box-shadow: inset 2px 24px 30px 2px rgba(255, 255, 255, 0.25);
+    animation-name: bubbling-sm;
+    animation-duration: 17s;
+}
+@keyframes bubbling-sm {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    10% {
+        transform: translateX(-15vw) translateY(-10vh);
+    }
+    50% {
+        transform: translateX(40vw) translateY(20vh);
+    }
+    100% {
+        transform: translateX(-30vw) translateY(-20vh);
+    }
+}
+.bubble-md.animate {
+    min-width: 14rem;
+    min-height: 14rem;
+    width: 30vw;
+    height: 30vw;
+    max-width: 18rem;
+    max-height: 18rem;
+    background: linear-gradient(180deg, #E7EC0D 0%, #0B893D 100%);
+    box-shadow: inset 0px -30px 23px -8px rgba(255, 255, 255, 0.25);
+    animation-name: bubbling-md;
+    animation-duration: 13s;
+}
+@keyframes bubbling-md {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(30vw) translateY(20vh);
+    }
+    100% {
+        transform: translateX(-30vw) translateY(20vh);
+    }
+}
+.bubble-lg.animate {
+    min-height: 17rem;
+    min-width: 17rem;
+    width: 45vw;
+    height: 45vw;
+    max-width: 20rem;
+    max-height: 20rem;
+    top: 30%;
+    left: 40%;
+    background: linear-gradient(180deg, #EC0DBB 0%, #650DD7 100%);
+    box-shadow: inset 0px -30px 23px -8px rgba(255, 255, 255, 0.25);
+    animation-name: bubbling-lg;
+    animation-duration: 10s;
+}
+@keyframes bubbling-lg {
+    0% {
+        transform: translateX(-20vw) translateY(0);
+    }
+    50% {
+        transform: translateX(-10vw) translateY(25vh);
+    }
+    100% {
+        transform: translateX(40vw) translateY(-35vh);
+    }
+}

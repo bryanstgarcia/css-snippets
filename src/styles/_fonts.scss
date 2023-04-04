@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+/* 
+    Fonts availbale (Google fonts)
+    font-family: 'Epilogue', sans-serif;
+    font-family: 'Manrope', sans-serif;
+*/
+
+$main-font: 'Epilogue', sans-serif;
+$second-font: 'Manrope', sans-serif;
+
+
+@mixin font-custom($family, $weight, $size, $style: "normal") {
+    $valid-sizes: 'xs', 'sm', 'md', 'lg', 'xl', 'xxl';
+    $size-position : index($valid-sizes, $size); 
+    @if not $size-position {
+        @error "#{$size} is not a valid side. Expected one of #{$valid-sizes}.";
+    }
+    $size-xs: calc(0.5rem + 0.15vw);
+    $size-sm: calc(0.75rem + 0.25vw);
+    $size-md: calc(1rem + 0.35vw);
+    $size-lg: calc(1.25rem + 0.45vw);
+    $size-xl: calc(1.75rem + 0.55vw);
+    $size-xxl: calc(2.5rem + 0.75vw);
+    $sizes-values: $size-xs, $size-sm, $size-md, $size-lg, $size-xl, $size-xxl;
+
+    font-family: $family;
+    font-weight: $weight;
+    font-size: nth($sizes-values, $size-position);
+}
+
+
+/* 
+    Ussage :
+    @use 'path/styles/fonts'; 
+    @include fonts.font-custom(fonts.$main-font, 700, 'lg', 'normal');
+*/
