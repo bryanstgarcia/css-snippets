@@ -1,13 +1,14 @@
 import React from 'react';
-import { LandingComponent } from './components';
+import { Hero, Mountain, MountainSnippet } from './components';
 import './index.scss';
 
 const Snippets = (props) => {
     return(
         <React.Fragment>
-            <LandingComponent />
+            <Hero />
+            <MountainSnippet />
+            <MountainSnippet />
         </React.Fragment>
-        
     )
 }
 
