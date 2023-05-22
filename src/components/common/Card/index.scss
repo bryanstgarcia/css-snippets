@@ -1,0 +1,21 @@
+@use './../../../styles/fonts';
+@use './../../../styles/variables';
+
+
+.card-container {
+    width: 320px;
+    height: 320px;
+    perspective: 400px;
+}
+.card {
+    width: 320px;
+    height: 320px;
+    position: relative;
+    backface-visibility: hidden;
+    cursor: pointer;
+    transform-style: preserve-3d ;
+    transition: transform 1s ease-in, opacity 1s ease-in;
+}
+.card.flip {
+    transform: rotateY(180deg);
+}
